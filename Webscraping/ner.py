@@ -4,15 +4,15 @@ from spacy import displacy
 
 NER = spacy.load("en_core_web_sm")
  
-file = open('../movies.json')
+def entity_names(file):
 
-jsondata = json.load(file)
+    data_array = []
+    for data in file:
+        synopsis = data['overview'].replace('\n', '').replace('-', ',')
+        entities = NER(synopsis)
+        for word in entities.ents:
+            if(word.label_ == 'PERSON'):
+                synopsis = synopsis.replace(word.text, word.label_)
+        data_array.append(synopsis)
 
-for data in jsondata:
-    new_text = data['synopsis']
-    entities = NER(data['synopsis'])
-    for word in entities.ents:
-        if(word.label_ == 'PERSON'):
-            new_text = new_text.replace(word.text, word.label_)
-    print(new_text)
-
+    return data_array
