@@ -11,7 +11,7 @@ result_popular = requests.get('https://api.themoviedb.org/3/movie/popular?api_ke
 popular = json.loads(result_popular.text)
 
 
-for i in range(len(popular)):
+for i in range(len(popular['results'])):
     id = popular['results'][i]['id']
     
     result_details = requests.get('https://api.themoviedb.org/3/movie/' + str(id) +'?api_key=' + API_KEY + '&language=en-US')
@@ -32,7 +32,8 @@ for i in range(len(popular)):
 
     tagline = details['tagline']
     keywords = response['choices'][0].text
-
+    synopsis = popular['results'][i]['overview']
+    print(synopsis)
     print(keywords)
     print(tagline)
 
