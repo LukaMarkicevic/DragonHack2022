@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { RoutingModule } from "./routing/routing.module";
 import { PlaygroundComponent } from './components/playground/playground.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomescreenComponent,
-    PlaygroundComponent
+    PlaygroundComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     RoutingModule,
     NgImageSliderModule
   ],
-  providers: [],
+  providers: [HomescreenComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

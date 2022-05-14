@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PlaygroundComponent } from '../playground/playground.component';
 
 @Component({
+  providers:[PlaygroundComponent],
   selector: 'app-homescreen',
   templateUrl: './homescreen.component.html',
   styleUrls: ['./homescreen.component.css']
 })
 export class HomescreenComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private playground: PlaygroundComponent) { }
 
   public data = {
     username: '',
@@ -16,22 +18,11 @@ export class HomescreenComponent implements OnInit {
 
   public play(): void {
     const navTo: string[] = ['/play'];
-    console.log(this.data.username);
-    this.router.navigate(navTo);
+    this.playground.guess().then((response) => {
+      console.log(response)
+      this.router.navigate(navTo);
+    });
   }
-
-
-  // this.avtentikacijaStoritev
-  //     .prijava(this.prijavniPodatki)
-  //     .pipe(catchError((napaka: HttpErrorResponse) => {
-  //         this.napakaNaObrazcu = napaka.toString()
-  //       return throwError(() => napaka);
-  //     })).subscribe(() => {
-  //     this.usmerjanje.navigateByUrl("/");
-  //   });
-
-
-
 
   ngOnInit(): void {
   }
