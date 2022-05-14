@@ -2,14 +2,20 @@ import requests
 import json
 import os
 import openai
+import ner
+import re
+#import ner
 
+dict = {}
 openai.api_key = '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'
 
 API_KEY = '35568b82a9c89c2f0045f4ebc7c4ab86'
 result_popular = requests.get('https://api.themoviedb.org/3/movie/popular?api_key=' + API_KEY +'&language=en-US&page=4')
 
 popular = json.loads(result_popular.text)
+synopsis = ner.entity_names(popular['results'])
 
+dict = {}
 
 for i in range(len(popular['results'])):
     id = popular['results'][i]['id']
@@ -32,10 +38,14 @@ for i in range(len(popular['results'])):
 
     tagline = details['tagline']
     keywords = response['choices'][0].text
-    synopsis = popular['results'][i]['overview']
-    print(synopsis)
-    print(keywords)
-    print(tagline)
+
+    dict[title] = {}
+    dict[title]["overview"] = synopsis[i].replace('\n', '').replace('-', ',')
+    dict[title]["tagline"] = tagline.replace('\n', '')
+    dict[title]["keywords"] = keywords.replace('\n', '')
+
+    with open('movies.json', 'w') as f:
+        json.dump(dict, f, indent=2)
 
 
 
