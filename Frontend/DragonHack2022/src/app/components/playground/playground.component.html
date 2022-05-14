@@ -1,0 +1,16 @@
+<div style="padding-top: 50px" class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
+            <form>
+                <label class="mt-1"><b>Movie name</b></label>
+                <input [(ngModel)] = "data.movie" type="text" id="movie" name="movie" class="form-control box-shadow" required>
+                <div class="d-grid gap-2 mt-3">
+                    <button type="submit" class="btn btn-primary" id="guess" (click)="guess()"> <i class="fas fa-user-plus"></i>GUESS</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+        </div>
+    </div>
+</div>

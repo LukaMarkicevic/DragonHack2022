@@ -1,0 +1,12 @@
+<div class="container d-flex justify-content-center" style="padding-top: 15%;">
+    <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-4">
+        <form>
+            <legend class="d-flex justify-content-center"><b>Guess the movie!</b></legend>
+            <label class="mt-1"><b>Username</b></label>
+            <input [(ngModel)] = "data.username" type="text" id="username" name="username" class="form-control box-shadow" required>
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-primary" id="play" (click)="play()"> <i class="fas fa-user-plus"></i>PLAY</button>
+            </div>
+        </form>
+    </div>
+</div>
