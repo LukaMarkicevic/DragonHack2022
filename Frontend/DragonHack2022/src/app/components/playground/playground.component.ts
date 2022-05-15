@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { SHRAMBA_BRSKALNIKA } from 'src/app/clases/shramba';
 var JsonBigint = require('json-bigint');
 
 @Component({
@@ -9,10 +10,16 @@ var JsonBigint = require('json-bigint');
 })
 export class PlaygroundComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(@Inject(SHRAMBA_BRSKALNIKA) private shramba: Storage, private router: Router) { }
 
   public data = {
     movie: ''
+  }
+
+  public player;
+
+  public vrniZeton(): void {
+    this.player = this.shramba.getItem('username');
   }
 
   public input = 'blood, debt, ghostly, Davy Jones, eternal damnation';
@@ -104,6 +111,8 @@ export class PlaygroundComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.vrniZeton();
+    
     this.guess();
   }
 
