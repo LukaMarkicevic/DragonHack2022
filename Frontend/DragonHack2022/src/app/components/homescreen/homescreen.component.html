@@ -1,4 +1,3 @@
-<!--<h1 *ngIf="username" class="d-flex justify-content-center mt-4">Hi, {{username}}!</h1>-->
 <div class="container d-flex justify-content-center" style="padding-top: 15%;">
     <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-4">
         <form>
@@ -6,7 +5,7 @@
             <label class="mt-1"><b>Username</b></label>
             <input [(ngModel)] = "username" type="text" id="username" name="username" class="form-control box-shadow" required>
             <div class="d-grid gap-2 mt-3">
-                <button type="submit" class="btn btn-primary" id="play" (click)="play()"> <i class="fas fa-user-plus"></i>PLAY</button>
+                <button type="submit" class="btn btn-success" id="play" (click)="play()"> <i class="fas fa-user-plus"></i>PLAY</button>
             </div>
         </form>
     </div>

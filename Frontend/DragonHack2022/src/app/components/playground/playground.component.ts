@@ -101,15 +101,23 @@ export class PlaygroundComponent implements OnInit {
   ]
 
   public makeGuess() {
-    if (this.currentMovie == 0 && this.data.movie === this.movieNames[this.currentMovie].movie) {
-      alert('Correct!');
-      this.nextMovie();
-      this.currentMovie++;
-      console.log(this.imageObject);
-      console.log(this.currentMovie);
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['/play']);
-    }); 
+    if (this.currentMovie == 0) {
+      if (this.data.movie === this.movieNames[this.currentMovie].movie) {
+        alert('Correct!');
+        this.nextMovie();
+        this.currentMovie++;
+        this.data.movie = '';
+      } else {
+        alert('Wrong!');
+      }
+    } else {
+      if (this.data.movie === this.movieNames[this.currentMovie].movie) {
+        alert('Correct!');
+        this.nextMovie();
+        this.data.movie = '';
+      } else {
+        alert('Wrong!');
+      }
     }
   }
 
