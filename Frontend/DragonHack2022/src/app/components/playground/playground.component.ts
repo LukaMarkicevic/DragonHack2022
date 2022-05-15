@@ -106,7 +106,7 @@ export class PlaygroundComponent implements OnInit {
 
   async guess() {
     await this.callDalleService(this.backendUrl, this.input, this.numOfImages).then((response) => {
-      for(var i = 0; i < this.numOfImages; i++) {
+      for (var i = 0; i < this.numOfImages; i++) {
         this.imageObject[i].image = this.imageObject[i].image.concat(response.generatedImgs[i]);
         this.imageObject[i].thumbImage = this.imageObject[i].thumbImage.concat(response.generatedImgs[i]);
       }
@@ -116,33 +116,37 @@ export class PlaygroundComponent implements OnInit {
 
   }
 
+  hints() {
+
+  }
+
   async callDalleService(backendUrl, text, numImages) {
     const queryStartTime = new Date()
     const response = await Promise.race([
-        (await fetch(backendUrl + `/dalle`, {
-                method: 'POST',
-                headers: {
-                    'Bypass-Tunnel-Reminder': "go",
-                    'mode': 'no-cors'
-                },
-                body: JSON.stringify({
-                    text,
-                    'num_images': numImages,
-                })
-            }
-        ).then((response) => {
-            if (!response.ok) {
-                throw Error(response.statusText);
-            }
+      (await fetch(backendUrl + `/dalle`, {
+        method: 'POST',
+        headers: {
+          'Bypass-Tunnel-Reminder': "go",
+          'mode': 'no-cors'
+        },
+        body: JSON.stringify({
+          text,
+          'num_images': numImages,
+        })
+      }
+      ).then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
 
-            return response
-        })).text(), new Promise((_, reject) => setTimeout(
-            () => reject(new Error('Timeout')), 60000))
+        return response
+      })).text(), new Promise((_, reject) => setTimeout(
+        () => reject(new Error('Timeout')), 60000))
     ]);
 
     return {
-        'executionTime': Math.round(((100) / 1000 + Number.EPSILON) * 100) / 100,
-        'generatedImgs': JsonBigint.parse(response)
+      'executionTime': Math.round(((100) / 1000 + Number.EPSILON) * 100) / 100,
+      'generatedImgs': JsonBigint.parse(response)
     }
   }
 

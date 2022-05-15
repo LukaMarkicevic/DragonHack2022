@@ -5,13 +5,37 @@
             <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
             <form (ngSubmit)="guess()">
                 <label class="mt-1"><b>Movie name</b></label>
-                <input [(ngModel)] = "data.movie" type="text" id="movie" name="movie" class="form-control box-shadow" required>
+                <input [(ngModel)]="data.movie" type="text" id="movie" name="movie" class="form-control box-shadow"
+                    required>
                 <div class="d-grid gap-2 mt-3">
-                    <button type="button" (click)="guess()" class="btn btn-primary" id="guess"> <i class="fas fa-user-plus"></i>GUESS</button>
+                    <button type="button" (click)="guess()" class="btn btn-primary" id="guess"> <i
+                            class="fas fa-user-plus"></i>GUESS</button>
+                    <button type="button" (click)="hints()" class="btn btn-secondary" id="hints"> <i
+                            class="fas fa-user-plus"></i>HINTS</button>
                 </div>
             </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6">
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
