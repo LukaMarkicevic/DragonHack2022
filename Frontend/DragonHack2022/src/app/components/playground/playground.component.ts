@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 var JsonBigint = require('json-bigint');
+var scores = 0
 
 @Component({
   selector: 'app-playground',
@@ -141,6 +142,8 @@ export class PlaygroundComponent implements OnInit {
 
   public backendUrl = 'https://four-memes-tease-35-204-43-210.loca.lt/';
   public numOfImages = 4;
+  public score = 0;
+
 
   async guess() {
     /*await this.callDalleService(this.backendUrl, this.input, this.numOfImages).then((response) => {
@@ -151,6 +154,7 @@ export class PlaygroundComponent implements OnInit {
       console.log(this.imageObject);
       return this.imageObject;
     });*/
+    this.score = scores
   }
 
   hints() {
