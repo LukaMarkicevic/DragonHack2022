@@ -17,7 +17,7 @@
             <ng-image-slider *ngIf="currentMovie == 2" [images]="imageObject" #nav></ng-image-slider>
             <ng-image-slider *ngIf="currentMovie == 3" [images]="imageObject" #nav></ng-image-slider>
             <ng-image-slider *ngIf="currentMovie == 4" [images]="imageObject" #nav></ng-image-slider>
-            <form (ngSubmit)="makeGuess()">
+            <form *ngIf="currentMovie <= 4" (ngSubmit)="makeGuess()">
                 <label class="mt-1"><b>Movie name</b></label>
                 <input [(ngModel)]="data.movie" type="text" id="movie" name="movie" class="form-control box-shadow"
                     required>
@@ -30,7 +30,8 @@
                 <div><p align="center"><strong>{{movie_hint}}</strong></p></div>
             </form>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
+        <div *ngIf="currentMovie == 5" class="col-xs-12 col-sm-12 col-md-6">
+            <!--<img src="../../../assets/trophy.png">-->
         </div>
     </div>
 </div>
