@@ -167,7 +167,7 @@ export class PlaygroundComponent implements OnInit {
   ]
 
   public nextMovie() {
-    for (var i = (this.currentMovie * 4); i < (this.currentMovie * 4) + 4; i++) {
+    for (var i = (this.currentMovie * 4); i < (this.currentMovie * 4) + 5; i++) {
       for(var j = 0; j < 4; j++) {
         this.imageObject[j] = this.allImages[i+j];
       }
