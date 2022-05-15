@@ -260,24 +260,18 @@ export class PlaygroundComponent implements OnInit {
         scores = scores + this.addScore
         this.addScore = 200
         this.movie_hint = ""
-        alert('Correct!');
         this.countup();
         this.nextMovie();
         this.currentMovie++;
         this.data.movie = '';
-      } else {
-        alert('Wrong!');
       }
     } else  {
       if (this.movieNames[this.currentMovie].movie.toLowerCase().includes(this.data.movie.toLowerCase()) && this.data.movie.length >= 4) {
         scores = scores + this.addScore
         this.addScore = 200
         this.movie_hint = ""
-        alert('Correct!');
         this.nextMovie();
         this.data.movie = '';
-      } else {
-        alert('Wrong!');
       }
     }
     this.score = scores
