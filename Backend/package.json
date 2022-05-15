@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for our game",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "DragonHack2022"
+  },
+  "keywords": [
+    "game",
+    "API",
+    "DragonHack"
+  ],
+  "author": "Us",
+  "license": "ISC",
+  "dependencies": {
+    "slugify": "^1.6.5"
+  }
+}
