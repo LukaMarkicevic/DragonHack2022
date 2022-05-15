@@ -31,8 +31,5 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('test')
-    //var a = new loadingbar(0);
-    //this.showPlayer()
   }
 }
