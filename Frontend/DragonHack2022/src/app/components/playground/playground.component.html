@@ -3,11 +3,11 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 offset-md-3">
             <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
-            <form>
+            <form (ngSubmit)="guess()">
                 <label class="mt-1"><b>Movie name</b></label>
                 <input [(ngModel)] = "data.movie" type="text" id="movie" name="movie" class="form-control box-shadow" required>
                 <div class="d-grid gap-2 mt-3">
-                    <button type="submit" class="btn btn-primary" id="guess" (click)="guess()"> <i class="fas fa-user-plus"></i>GUESS</button>
+                    <button type="button" (click)="guess()" class="btn btn-primary" id="guess"> <i class="fas fa-user-plus"></i>GUESS</button>
                 </div>
             </form>
         </div>

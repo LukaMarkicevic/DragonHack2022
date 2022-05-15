@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { HomescreenComponent } from '../homescreen/homescreen.component';
 import { DatatransferService } from 'src/app/services/datatransfer.service';
+// @ts-ignore
+import * as loadingbar from './loadingbar';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
 
-  constructor(private homescreen: HomescreenComponent, private datatransfer: DatatransferService) { }
+  constructor( private datatransfer: DatatransferService) { }
 
-  public player = {
-    name: '',
-  }
+  public player: any;
 
   public showPlayer() {
-    this.player.name = this.datatransfer.getPlayer()
+    this.player = this.datatransfer.vrniZeton();
   }
 
   ngOnInit(): void {
-    this.showPlayer();
-    console.log(this.player.name)
+    console.log('test')
+    //var a = new loadingbar(0);
+    this.showPlayer()
   }
-
 }
