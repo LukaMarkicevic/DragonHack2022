@@ -1,11 +1,16 @@
 import requests
 import json
-import os
 import openai
 import ner
-import re
-#import ner
 
+
+### 
+# Script connects to TMDB api and collects 7 top movies
+# From 7 top movies we extract Title, Keywords, Tagline, Synopsis etc.
+# With NLP we remove named entities, so we make the challenge more exciting
+# We feed OpenAI Dall-E 1 with changed synopsis to get artificially created images
+# DUE TO THE TIME LIMITATION THINGS ARE NOT CONNECTED, ALTHOUGH RESULTS FROM THIS PHASE WERE USED LATER ON
+###
 dict = {}
 openai.api_key = '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'
 
