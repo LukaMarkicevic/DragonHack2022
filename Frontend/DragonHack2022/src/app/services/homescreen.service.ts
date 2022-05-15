@@ -5,9 +5,9 @@ import { HomescreenComponent } from '../components/homescreen/homescreen.compone
 @Injectable({
   providedIn: 'root'
 })
-export class DatatransferService {
+export class HomescreenService {
 
-  constructor(@Inject(SHRAMBA_BRSKALNIKA) private shramba: Storage, private homescreen: HomescreenComponent) { }
+  constructor(@Inject(SHRAMBA_BRSKALNIKA) private shramba: Storage) { }
 
   public shraniZeton(username: string): void {
     this.shramba.setItem('username', username);
