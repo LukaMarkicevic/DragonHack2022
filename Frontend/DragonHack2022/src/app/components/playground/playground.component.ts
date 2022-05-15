@@ -167,8 +167,15 @@ export class PlaygroundComponent implements OnInit {
   ]
 
   public nextMovie() {
-    for (var i = 0; i < 4; i++) {
-      this.imageObject[i] = this.allImages[i + 4];
+    for (var i = (this.currentMovie * 4); i < (this.currentMovie * 4) + 4; i++) {
+      for(var j = 0; j < 4; j++) {
+        this.imageObject[j] = this.allImages[i+j];
+      }
+      // if (this.currentMovie == 0) {
+      //   this.imageObject[i] = this.allImages[i + 4];
+      // } else {
+      //   this.imageObject[i] = this.allImages[((i + 1) * (this.currentMovie + 1)) + 3];
+      // }
     }
   }
 
@@ -191,7 +198,7 @@ export class PlaygroundComponent implements OnInit {
   ]
 
   public makeGuess() {
-    if (this.currentMovie == 0) {
+    if (this.currentMovie != 5) {
       if (this.movieNames[this.currentMovie].movie.toLowerCase().includes(this.data.movie.toLowerCase())) {
         alert('Correct!');
         this.nextMovie();
@@ -200,7 +207,7 @@ export class PlaygroundComponent implements OnInit {
       } else {
         alert('Wrong!');
       }
-    } else {
+    } else  {
       if (this.movieNames[this.currentMovie].movie.toLowerCase().includes(this.data.movie.toLowerCase())) {
         alert('Correct!');
         this.nextMovie();

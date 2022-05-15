@@ -7,6 +7,9 @@
         <div class="col-xs-12 col-sm-12 col-md-6 offset-md-3">
             <ng-image-slider *ngIf="currentMovie == 0" [images]="imageObject" #nav></ng-image-slider>
             <ng-image-slider *ngIf="currentMovie == 1" [images]="imageObject" #nav></ng-image-slider>
+            <ng-image-slider *ngIf="currentMovie == 2" [images]="imageObject" #nav></ng-image-slider>
+            <ng-image-slider *ngIf="currentMovie == 3" [images]="imageObject" #nav></ng-image-slider>
+            <ng-image-slider *ngIf="currentMovie == 4" [images]="imageObject" #nav></ng-image-slider>
             <form (ngSubmit)="makeGuess()">
                 <label class="mt-1"><b>Movie name</b></label>
                 <input [(ngModel)]="data.movie" type="text" id="movie" name="movie" class="form-control box-shadow"
