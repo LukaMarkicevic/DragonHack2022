@@ -87,14 +87,14 @@ export class PlaygroundComponent implements OnInit {
   ]
 
   public nextMovie() {
-    for(var i = 0; i < 4; i++) {
-      this.imageObject[i] = this.allImages[i+4];
+    for (var i = 0; i < 4; i++) {
+      this.imageObject[i] = this.allImages[i + 4];
     }
   }
 
   public movieNames: Array<any> = [
     {
-      movie: 'The Simpsons in Plusaversary'
+      movie: 'Simpsons'
     },
     {
       movie: 'Avengers: Infinity War'
@@ -103,7 +103,7 @@ export class PlaygroundComponent implements OnInit {
 
   public makeGuess() {
     if (this.currentMovie == 0) {
-      if (this.data.movie === this.movieNames[this.currentMovie].movie) {
+      if (this.movieNames[this.currentMovie].movie.toLowerCase().includes(this.data.movie.toLowerCase())) {
         alert('Correct!');
         this.nextMovie();
         this.currentMovie++;
@@ -112,7 +112,7 @@ export class PlaygroundComponent implements OnInit {
         alert('Wrong!');
       }
     } else {
-      if (this.data.movie === this.movieNames[this.currentMovie].movie) {
+      if (this.movieNames[this.currentMovie].movie.toLowerCase().includes(this.data.movie.toLowerCase())) {
         alert('Correct!');
         this.nextMovie();
         this.data.movie = '';
