@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
 <div style="padding-top: 50px" class="container">
+    <div>
+        <p align="center" id="points" font-size="1.75em"><strong>Points:{{score}}</strong></p>
+    </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 offset-md-3">
             <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
