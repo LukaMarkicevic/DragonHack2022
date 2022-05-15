@@ -25,14 +25,14 @@ export class PlaygroundComponent implements OnInit {
   public update() {
     this.bar = document.getElementById('prog-bar') as HTMLElement;
     
-    this.bar.style.width = this.p + 'px';
+    this.bar.style.width = this.p + '%';
     console.log(this.bar.style.width)
   }
 
   public countup() {
-    this.p += 111;
+    this.p += 14;
     this.update();
-    this.counter = (this.currentMovie+1).toString() + "/5" 
+    this.counter = (this.currentMovie+1).toString() + "/7" 
   }
   public countdown() {
     if (0 < this.p) { this.p -= 10; }
