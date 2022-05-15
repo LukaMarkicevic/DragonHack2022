@@ -14,7 +14,7 @@ rottenpix.tech is a web based game in which users need to guess which movie a pi
 We firstly used APIs to gather movie data, such as movie names, summary, keywords, and a quote from it. Then we used the GPT3 API to preform natural language preprocessing on the summaries in order for the images to not be too specific. We found out that if the descriptions are too specific, if they include character names for example, the image look almost like it is from the movie. This would make the game too easy so we "degraded" the summaries to make the images harder to recognise.
 
 
-We then sent the summaries through the DALL-E API as its input and waited for it to return 4 generated images images. These images are then shown to the user and he has to guess which movie the generated images are representing. The user must choose his guess from the list of given movies. If he is correct a message tells him so. However if he is wrong he gets a chance to get a hint.
+We then sent the summaries through the DALL-E API as its input and waited for it to return 4 generated images images. These images are then shown to the user and he has to guess which movie the generated images are representing. The user must write his guess. If he is correct a message tells him so. However if he is wrong he gets a chance to get a hint.
 
 
 The hint is a famous quote from this movie. This helps the player since it gives him at least a clue about the movie or its ganera, especially if the player recognises the said quote. 
