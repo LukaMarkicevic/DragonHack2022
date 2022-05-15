@@ -1,3 +1,5 @@
 #prog-bar{
-    width:0%
+    width:0%;
+    background-color: lightseagreen;
+    height: 10px;
 }

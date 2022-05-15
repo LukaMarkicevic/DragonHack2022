@@ -17,6 +17,7 @@ export class PlaygroundComponent implements OnInit {
     movie: ''
   }
 
+  public counter = "";
   public p = 0;
   public player;
   public bar;
@@ -24,14 +25,14 @@ export class PlaygroundComponent implements OnInit {
   public update() {
     this.bar = document.getElementById('prog-bar') as HTMLElement;
     
-    this.bar.style.width = this.p + '%';
+    this.bar.style.width = this.p + 'px';
     console.log(this.bar.style.width)
   }
 
   public countup() {
-    if (this.p < 100) { this.p += 10; }
-      this.update();
-    console.log(this.bar)
+    this.p += 111;
+    this.update();
+    this.counter = (this.currentMovie+1).toString() + "/5" 
   }
   public countdown() {
     if (0 < this.p) { this.p -= 10; }
@@ -197,23 +198,13 @@ export class PlaygroundComponent implements OnInit {
       for(var j = 0; j < 4; j++) {
         this.imageObject[j] = this.allImages[i+j];
       }
-      // if (this.currentMovie == 0) {
-      //   this.imageObject[i] = this.allImages[i + 4];
-      // } else {
-      //   this.imageObject[i] = this.allImages[((i + 1) * (this.currentMovie + 1)) + 3];
-      // }
     }
   }
 
   public movieNames: Array<any> = [
     {
-<<<<<<< HEAD
-      movie: 'The Simpsons'
-=======
-
       movie: 'Simpsons',
       hint: 'Why You Little ...'
->>>>>>> 2d75a2a809363d3ac431971f117d2872fc9ec3db
     },
     {
       movie: 'Avengers: Infinity War',
