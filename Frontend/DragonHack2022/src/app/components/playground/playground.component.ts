@@ -181,25 +181,36 @@ export class PlaygroundComponent implements OnInit {
 
   public movieNames: Array<any> = [
     {
-      movie: 'Simpsons'
+
+      movie: 'Simpsons',
+      hint: 'Why You Little ...'
     },
     {
-      movie: 'Avengers: Infinity War'
+      movie: 'Avengers: Infinity War',
+      hint: 'What\'s The Matter With You Kids? You Never Seen A Spaceship Before?'
     },
     {
-      movie: 'Rick and Morty'
+      movie: 'Rick and Morty',
+      hint: 'I\'m a pickle Morty!'
     },
     {
-      movie: 'Hachiko'
+      movie: 'Hachiko',
+      hint: 'Parker is never coming home.'
     },
     {
-      movie: 'Star Wars'
+      movie: 'Star Wars',
+      hint: 'Mesa your humble servant!'
     }
   ]
+
+  public addScore = 200;
 
   public makeGuess() {
     if (this.currentMovie != 5) {
       if (this.movieNames[this.currentMovie].movie.toLowerCase().includes(this.data.movie.toLowerCase())) {
+        scores = scores + this.addScore
+        this.addScore = 200
+        this.movie_hint = ""
         alert('Correct!');
         this.nextMovie();
         this.currentMovie++;
@@ -209,6 +220,9 @@ export class PlaygroundComponent implements OnInit {
       }
     } else  {
       if (this.movieNames[this.currentMovie].movie.toLowerCase().includes(this.data.movie.toLowerCase())) {
+        scores = scores + this.addScore
+        this.addScore = 200
+        this.movie_hint = ""
         alert('Correct!');
         this.nextMovie();
         this.data.movie = '';
@@ -216,6 +230,7 @@ export class PlaygroundComponent implements OnInit {
         alert('Wrong!');
       }
     }
+    this.score = scores
   }
 
   public titles: Array<any> = [
@@ -239,6 +254,7 @@ export class PlaygroundComponent implements OnInit {
   public backendUrl = 'https://four-memes-tease-35-204-43-210.loca.lt/';
   public numOfImages = 4;
   public score = 0;
+  public movie_hint = "";
 
 
   async guess() {
@@ -254,7 +270,8 @@ export class PlaygroundComponent implements OnInit {
   }
 
   hints() {
-
+    this.addScore = 100
+    this.movie_hint = this.movieNames[this.currentMovie].hint
   }
 
   async callDalleService(backendUrl, text, numImages) {
