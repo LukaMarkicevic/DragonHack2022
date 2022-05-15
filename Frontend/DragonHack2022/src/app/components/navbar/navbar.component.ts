@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatatransferService } from 'src/app/services/datatransfer.service';
 // @ts-ignore
 import * as loadingbar from './loadingbar';
 
@@ -11,17 +10,26 @@ import * as loadingbar from './loadingbar';
 
 export class NavbarComponent implements OnInit {
 
-  constructor( private datatransfer: DatatransferService) { }
+  constructor() { }
 
   public player: any;
+  public bar: any;
+  public p = 0;
 
-  public showPlayer() {
-    this.player = this.datatransfer.vrniZeton();
+  public update() {
+    this.bar = document.getElementById('prog-bar') as HTMLElement;
+    console.log(this.bar)
+    this.bar.style.width = this.p + '%';
+  }  
+  public countup() {
+    if (this.p < 100) { this.p += 10; }
+      this.update();
+  }
+  public countdown() {
+    if (0 < this.p) { this.p -= 10; }
+      this.update();
   }
 
   ngOnInit(): void {
-    console.log('test')
-    //var a = new loadingbar(0);
-    this.showPlayer()
   }
 }

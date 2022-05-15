@@ -19,6 +19,8 @@ We then sent the summaries through the DALL-E API as its input and waited for it
 
 The hint is a famous quote from this movie. This helps the player since it gives him at least a clue about the movie or its ganera, especially if the player recognises the said quote. 
 
+When the web app was finished we registered the domain rottenpix.tech on domain.com and deployed the website on netlify.com.
+
 ## Plans for the future
 
 We wanted for the app to have different categories, such as movies, series, anime, songs... However due to the time restraints we only managed to get a database of movies. We also planned to implement multiplayer mode in which different players competed against eachother by trying to guess the movies by writing their names. 

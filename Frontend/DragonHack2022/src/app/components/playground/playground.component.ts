@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { SHRAMBA_BRSKALNIKA } from 'src/app/clases/shramba';
 var JsonBigint = require('json-bigint');
 var scores = 0
 
@@ -10,10 +11,36 @@ var scores = 0
 })
 export class PlaygroundComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(@Inject(SHRAMBA_BRSKALNIKA) private shramba: Storage, private router: Router) { }
 
   public data = {
     movie: ''
+  }
+
+  public counter = "";
+  public p = 0;
+  public player;
+  public bar;
+
+  public update() {
+    this.bar = document.getElementById('prog-bar') as HTMLElement;
+    
+    this.bar.style.width = this.p + 'px';
+    console.log(this.bar.style.width)
+  }
+
+  public countup() {
+    this.p += 111;
+    this.update();
+    this.counter = (this.currentMovie+1).toString() + "/5" 
+  }
+  public countdown() {
+    if (0 < this.p) { this.p -= 10; }
+      this.update();
+  }
+
+  public vrniZeton(): void {
+    this.player = this.shramba.getItem('username');
   }
 
   public currentMovie = 0;
@@ -196,7 +223,6 @@ export class PlaygroundComponent implements OnInit {
 
   public movieNames: Array<any> = [
     {
-
       movie: 'Simpsons',
       hint: 'Why You Little ...'
     },
@@ -235,6 +261,7 @@ export class PlaygroundComponent implements OnInit {
         this.addScore = 200
         this.movie_hint = ""
         alert('Correct!');
+        this.countup();
         this.nextMovie();
         this.currentMovie++;
         this.data.movie = '';
@@ -328,6 +355,8 @@ export class PlaygroundComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.vrniZeton();
+    
     this.guess();
   }
 
