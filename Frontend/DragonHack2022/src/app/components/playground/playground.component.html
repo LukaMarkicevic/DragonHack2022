@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div style="padding-top: 50px" class="container">
     <div>
-        <p align="center" id="points" font-size="1.75em"><strong>Points:{{score}}</strong></p>
+        <p align="center"><strong>Points:{{score}}</strong></p>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 offset-md-3">
@@ -11,7 +11,7 @@
                 <input [(ngModel)]="data.movie" type="text" id="movie" name="movie" class="form-control box-shadow"
                     required>
                 <div class="d-grid gap-2 mt-3">
-                    <button type="button" (click)="guess()" class="btn btn-primary" id="guess"> <i
+                    <button type="button" (click)="makeGuess()" class="btn btn-primary" id="guess"> <i
                             class="fas fa-user-plus"></i>GUESS</button>
                     <button type="button" (click)="hints()" class="btn btn-secondary" id="hints"> <i
                             class="fas fa-user-plus"></i>HINTS</button>

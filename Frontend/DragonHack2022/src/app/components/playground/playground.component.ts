@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 var JsonBigint = require('json-bigint');
-
+var scores = 0
 
 @Component({
   selector: 'app-playground',
@@ -101,9 +101,12 @@ export class PlaygroundComponent implements OnInit {
     }
   ]
 
-  public makeGuess() {
+  async makeGuess() {
     if (this.currentMovie == 0 && this.data.movie === this.movieNames[this.currentMovie].movie) {
+      scores = scores + 200
+      this.score = scores
       alert('Correct!');
+     
       this.nextMovie();
       this.currentMovie++;
       console.log(this.imageObject);
@@ -111,6 +114,8 @@ export class PlaygroundComponent implements OnInit {
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this.router.navigate(['/play']);
     }); 
+    } else {
+      alert("False!")
     }
   }
 
@@ -134,7 +139,7 @@ export class PlaygroundComponent implements OnInit {
 
   public backendUrl = 'https://four-memes-tease-35-204-43-210.loca.lt/';
   public numOfImages = 4;
-  public score = -1;
+  public score = 0;
 
 
   async guess() {
@@ -146,11 +151,11 @@ export class PlaygroundComponent implements OnInit {
       console.log(this.imageObject);
       return this.imageObject;
     });*/
+    this.score = scores
   }
 
   hints() {
 
-    this.score = this.score +1
   }
 
   async callDalleService(backendUrl, text, numImages) {
